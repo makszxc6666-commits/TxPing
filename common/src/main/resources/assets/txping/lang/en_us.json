@@ -1,0 +1,11 @@
+{
+	"txping.config.title": "TxPing Settings",
+	"txping.config.enabled": "Show ping HUD",
+	"txping.config.show_label": "Show \"Ping:\" label",
+	"txping.config.position": "Position",
+	"txping.position.top_left": "Top left",
+	"txping.position.top_right": "Top right",
+	"txping.position.bottom_left": "Bottom left",
+	"txping.position.bottom_right": "Bottom right",
+	"txping.config.drag_hint": "Drag the ping widget anywhere on the screen"
+}

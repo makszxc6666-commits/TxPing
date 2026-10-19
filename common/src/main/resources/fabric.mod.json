@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "txping",
+	"version": "${version}",
+	"name": "TxPing",
+	"description": "A lightweight and customizable mod that displays your current ping on the HUD.",
+	"authors": [
+		"tixsu_ya"
+	],
+	"contact": {
+		"sources": "https://github.com/makszxc6666-commits"
+	},
+	"license": "MIT",
+	"icon": "assets/txping/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"org.tixsu.TxPing"
+		],
+		"client": [
+			"org.tixsu.TxPing"
+		],
+		"modmenu": [
+			"org.tixsu.TxPingModMenu"
+		]
+	},
+	"suggests": {
+		"modmenu": "*"
+	},
+	"depends": {
+		"fabricloader": ">=0.14.0",
+		"minecraft": "${minecraft_range}",
+		"java": ">=${java_min}",
+		"fabric-api": "*"
+	}
+}

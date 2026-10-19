@@ -1,0 +1,11 @@
+{
+	"txping.config.title": "Настройки TxPing",
+	"txping.config.enabled": "Показывать пинг",
+	"txping.config.show_label": "Показывать надпись \"Ping:\"",
+	"txping.config.position": "Позиция",
+	"txping.position.top_left": "Сверху слева",
+	"txping.position.top_right": "Сверху справа",
+	"txping.position.bottom_left": "Снизу слева",
+	"txping.position.bottom_right": "Снизу справа",
+	"txping.config.drag_hint": "Перетащите виджет пинга в любое место экрана"
+}

@@ -1,0 +1,52 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}" apply false
+}
+
+subprojects {
+	repositories {
+		maven { url = 'https://api.modrinth.com/maven' }
+		mavenCentral()
+	}
+	plugins.withId('java') {
+		dependencies {
+			compileOnly 'org.slf4j:slf4j-api:1.7.36'
+		}
+	}
+}
+
+// Shared source layers compiled by every version module that lists them in `layers`.
+// A layer project has no build file of its own: its sources are compiled by the
+// version modules against that module's Minecraft version.
+def layerNames = ['common', '1.20.1-1.21.4']
+configure(subprojects.findAll { !(it.name in layerNames) }) {
+	plugins.withId('java') {
+		base.archivesName = 'txping'
+		version = "${rootProject.version}+${minecraft_version}"
+
+		def layers = layers.split(',')*.trim()
+		sourceSets.main {
+			layers.each {
+				java.srcDir project(":${it}").file('src/main/java')
+				resources.srcDir project(":${it}").file('src/main/resources')
+			}
+		}
+
+		processResources {
+			def props = [
+				version: rootProject.version,
+				minecraft_range: project.findProperty('minecraft_range') ?: "~${minecraft_version}",
+				java_min: java_min
+			]
+			inputs.properties props
+			filesMatching("fabric.mod.json") { expand props }
+		}
+
+		tasks.withType(JavaCompile).configureEach { it.options.release = java_release as int }
+
+		jar {
+			from(rootProject.file('LICENSE')) {
+				rename { "${it}_txping" }
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+pluginManagement {
+	repositories {
+		maven { url = 'https://maven.fabricmc.net/' }
+		gradlePluginPortal()
+	}
+}
+
+// Should match your modid
+rootProject.name = 'txping'
+
+include 'common', '1.20.1-1.21.4', '1.16.5', '1.20.1', '1.21.4', '1.21.11'

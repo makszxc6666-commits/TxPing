@@ -1,0 +1,12 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap'
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+	modCompileOnly "maven.modrinth:modmenu:${modmenu_version}"
+	modLocalRuntime "maven.modrinth:modmenu:${modmenu_version}"
+}
