@@ -7,11 +7,6 @@ subprojects {
 		maven { url = 'https://api.modrinth.com/maven' }
 		mavenCentral()
 	}
-	plugins.withId('java') {
-		dependencies {
-			compileOnly 'org.slf4j:slf4j-api:1.7.36'
-		}
-	}
 }
 
 // Shared source layers compiled by every version module that lists them in `layers`.
